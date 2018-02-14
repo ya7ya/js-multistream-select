@@ -43,12 +43,15 @@ class Dialer {
 
       callback()
     }, this.log)
-
-    pull(
-      rawConn,
-      s,
-      rawConn
-    )
+    try {
+      pull(
+        rawConn,
+        s,
+        rawConn
+      )
+    } catch (e) {
+      if (e) this.log(e)
+    }
   }
 
   /**
